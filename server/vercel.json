@@ -1,1 +1,6 @@
-{ "rewrites": [{ "source": "/(.*)", "destination": "app.js" }] }
+{
+  "version": 2,
+  "name": "virtual-vishal-api",
+  "builds": [{ "src": "app.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/app.js" }]
+}
