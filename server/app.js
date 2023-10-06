@@ -1,41 +1,27 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+// require express for server
+const express = require("express");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+// create a new express application
+const app = express();
 
-var app = express();
-
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
-
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+// start listening on port 3000
+app.listen(3000, () => {
+  console.log("Server is started on port 3000");
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
+// different types of requests based on the http methods
+app.get("/", (req, res) => {
+  res.send("This is a GET request");
 });
 
-module.exports = app;
+app.post("/", (req, res) => {
+  res.send("This is a POST request");
+});
+
+app.put("/", (req, res) => {
+  res.send("This is a PUT request");
+});
+
+app.delete("/", (req, res) => {
+  res.send("This is a DELETE request");
+});

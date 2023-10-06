@@ -1,16 +1,29 @@
 {
-  "name": "server",
-  "version": "0.0.0",
-  "private": true,
+  "name": "virtual-vishal-api",
+  "version": "1.0.0",
+  "description": "This is just a try to use OpenAI's API to build something like ChatGPT",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishalmajumdar/virtual-vishal.git"
+  },
+  "keywords": [
+    "chatgpt",
+    "openai",
+    "virtual vishal",
+    "vishal majumdar",
+    "vishal"
+  ],
+  "author": "Vishal Majumdar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishalmajumdar/virtual-vishal/issues"
+  },
+  "homepage": "https://github.com/vishalmajumdar/virtual-vishal#readme",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "^4.18.2",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "pug": "^3.0.2"
+    "express": "^4.18.2"
   }
 }
