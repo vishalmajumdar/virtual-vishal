@@ -1,4 +1,5 @@
 const express = require("express");
+const Blog = require("../models/blogModel");
 
 const router = express.Router();
 
@@ -14,8 +15,17 @@ router.get("/:id", (req, res) => {
 });
 
 // POST a new blog
-router.post("/", (req, res) => {
-  res.json({ msg: "Create Blog" });
+router.post("/", async (req, res) => {
+  const { title, body } = req.body;
+  try {
+    const blog = await Blog.create({
+      title,
+      body,
+    });
+    res.status(200).json(blog);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 });
 
 // DELETE
