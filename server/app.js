@@ -4,25 +4,20 @@ const { PORT } = process.env;
 // require express for server
 const express = require("express");
 
+const blogRoutes = require("./routes/blogs");
+
 // create a new express application
 const app = express();
 
-// different types of requests based on the http methods
-app.get("/", (req, res) => {
-  res.send("This is a GET request");
+// middleware
+app.use(express.json());
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
 });
 
-app.post("/", (req, res) => {
-  res.send("This is a POST request");
-});
-
-app.put("/", (req, res) => {
-  res.send("This is a PUT request");
-});
-
-app.delete("/", (req, res) => {
-  res.send("This is a DELETE request");
-});
+// routes
+app.use("/api/blogs", blogRoutes);
 
 // start listening on port 3000
 app.listen(PORT, () => {
