@@ -14,7 +14,7 @@ const HomeFeatures = () => {
         </div>
         <div className="max-w-5xl flex flex-wrap gap-3 justify-center">
           {/* Cards Start */}
-          <div className="card w-96 bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
+          <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
               <h2 className="card-title">Content Enhancement</h2>
               <ul className="flex flex-col text-left">
@@ -31,7 +31,7 @@ const HomeFeatures = () => {
             </div>
           </div>
           {/* Card 2 */}
-          <div className="card w-96 bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
+          <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
               <h2 className="card-title">Audience Engagement</h2>
               <ul className="flex flex-col text-left">
@@ -48,7 +48,7 @@ const HomeFeatures = () => {
             </div>
           </div>
           {/* Card 3 */}
-          <div className="card w-96 bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
+          <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
               <h2 className="card-title">Time Efficiency</h2>
               <ul className="flex flex-col text-left">
@@ -65,7 +65,7 @@ const HomeFeatures = () => {
             </div>
           </div>
           {/* Card 4 */}
-          <div className="card w-96 bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
+          <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
               <h2 className="card-title">SEO Optimization</h2>
               <ul className="flex flex-col text-left">
@@ -82,7 +82,7 @@ const HomeFeatures = () => {
             </div>
           </div>
           {/* Card 5 */}
-          <div className="card w-96 bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
+          <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
               <h2 className="card-title">Data Insights</h2>
               <ul className="flex flex-col text-left">
@@ -98,7 +98,7 @@ const HomeFeatures = () => {
             </div>
           </div>
           {/* Card 6 */}
-          <div className="card w-96 bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
+          <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
               <h2 className="card-title">User-Friendly Interface</h2>
               <ul className="flex flex-col text-left">
