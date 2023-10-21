@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <>
@@ -25,39 +26,46 @@ const Header = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Home</a>
+                <Link to={"/"}>Home</Link>
               </li>
               <li>
-                <a>About</a>
+                <Link to={"/about"}>About </Link>
               </li>
-
               <li>
-                <a>Contact</a>
+                <Link to={"/pricing"}>Pricing </Link>
+              </li>
+              <li>
+                <Link to={"contact"}>Contact </Link>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl font-serif">
+          <Link
+            to={"/"}
+            className="btn btn-ghost normal-case text-xl font-serif"
+          >
             Virtual Vishal
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <NavLink to="/">Home </NavLink>
             </li>
             <li>
-              <a>About</a>
+              <NavLink to={"/about"}>About </NavLink>
             </li>
             <li>
-              <a>Plans and Pricing</a>
+              <NavLink to={"/pricing"}>Pricing </NavLink>
             </li>
             <li>
-              <a>Contact</a>
+              <NavLink to={"/contact"}>Contact </NavLink>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Account</a>
+          <Link to={"/signin"} className="btn">
+            Sign In{" "}
+          </Link>
         </div>
       </div>
     </>
