@@ -16,7 +16,7 @@ const HomeFeatures = () => {
           {/* Cards Start */}
           <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
-              <h2 className="card-title">Content Enhancement</h2>
+              <h2 className="card-title font-serif">Content Enhancement</h2>
               <ul className="flex flex-col text-left">
                 <li>
                   Boost the quality of your content with AI-driven proofreading
@@ -33,7 +33,7 @@ const HomeFeatures = () => {
           {/* Card 2 */}
           <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
-              <h2 className="card-title">Audience Engagement</h2>
+              <h2 className="card-title font-serif">Audience Engagement</h2>
               <ul className="flex flex-col text-left">
                 <li>
                   Tailor your content to your target audience with data-driven
@@ -50,7 +50,7 @@ const HomeFeatures = () => {
           {/* Card 3 */}
           <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
-              <h2 className="card-title">Time Efficiency</h2>
+              <h2 className="card-title font-serif">Time Efficiency</h2>
               <ul className="flex flex-col text-left">
                 <li>
                   Save time on research and ideation with AI-generated content
@@ -67,7 +67,7 @@ const HomeFeatures = () => {
           {/* Card 4 */}
           <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
-              <h2 className="card-title">SEO Optimization</h2>
+              <h2 className="card-title font-serif">SEO Optimization</h2>
               <ul className="flex flex-col text-left">
                 <li>
                   Improve your search engine rankings with AI-guided SEO
@@ -84,7 +84,7 @@ const HomeFeatures = () => {
           {/* Card 5 */}
           <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
-              <h2 className="card-title">Data Insights</h2>
+              <h2 className="card-title font-serif">Data Insights</h2>
               <ul className="flex flex-col text-left">
                 <li>
                   Gain valuable insights into your content performance and
@@ -100,7 +100,7 @@ const HomeFeatures = () => {
           {/* Card 6 */}
           <div className="card bg-base-100 shadow-xl card-normal basis-[80%] sm:basis-[40%] md:basis-[30%]">
             <div className="card-body">
-              <h2 className="card-title">User-Friendly Interface</h2>
+              <h2 className="card-title font-serif">User-Friendly Interface</h2>
               <ul className="flex flex-col text-left">
                 <li>
                   Our user-friendly platform makes it easy to harness the power
