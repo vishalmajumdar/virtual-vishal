@@ -1,5 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 const Header = () => {
+  const location = useLocation();
+  const link = location.pathname;
   return (
     <>
       <div className="navbar bg-base-100">
@@ -63,9 +65,15 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to={"/signin"} className="btn">
-            Sign In{" "}
-          </Link>
+          {link !== "/signin" ? (
+            <Link to={"/signin"} className="btn">
+              Sign In
+            </Link>
+          ) : (
+            <Link to={"/signup"} className="btn">
+              Sign Up
+            </Link>
+          )}
         </div>
       </div>
     </>

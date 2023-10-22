@@ -1,5 +1,13 @@
+import Divider from "../components/Divider";
+import SignInAndUp from "../components/SignInAndUp";
+
 const SignUp = () => {
-  return <>Sign Up</>;
+  return (
+    <>
+      <SignInAndUp />
+      <Divider />
+    </>
+  );
 };
 
 export default SignUp;
