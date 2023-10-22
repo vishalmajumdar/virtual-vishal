@@ -1,8 +1,10 @@
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
+import { AppContext } from "../App";
 
 const AddParticles = () => {
+  const { theme } = useContext(AppContext);
   const particlesInit = useCallback(async (engine) => {
     // console.log(engine);
     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
@@ -41,10 +43,10 @@ const AddParticles = () => {
     },
     particles: {
       color: {
-        value: "#fff",
+        value: theme === "luxury" ? "#fff" : "#000",
       },
       links: {
-        color: "#fff",
+        color: theme === "luxury" ? "#fff" : "#000",
         distance: 150,
         enable: true,
         opacity: 0.3,
