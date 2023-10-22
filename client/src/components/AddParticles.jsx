@@ -29,11 +29,15 @@ const AddParticles = () => {
           enable: true,
           mode: "repulse",
         },
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
         resize: true,
       },
       modes: {
         push: {
-          quantity: 40,
+          quantity: 4,
         },
         repulse: {
           distance: 125,
@@ -67,7 +71,7 @@ const AddParticles = () => {
           enable: true,
           area: 600,
         },
-        value: 60,
+        value: 100,
       },
       opacity: {
         value: 0.5,
