@@ -1,3 +1,5 @@
+import AddParticles from "./AddParticles";
+
 const HomeHero = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -13,6 +15,7 @@ const HomeHero = () => {
           <button className="btn btn-primary">Get Started</button>
         </div>
       </div>
+      <AddParticles />
     </div>
   );
 };

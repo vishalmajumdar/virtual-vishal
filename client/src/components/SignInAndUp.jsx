@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import AddParticles from "./AddParticles";
 
 const SignIn = () => {
   return (
@@ -73,6 +74,7 @@ const SignInAndUp = () => {
         <div className="hero-content text-center flex-col">
           {link === "/signin" ? <SignIn /> : <SignUp />}
         </div>
+        <AddParticles />
       </div>
     </>
   );

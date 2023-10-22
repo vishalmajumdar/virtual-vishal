@@ -1,3 +1,5 @@
+import AddParticles from "./AddParticles";
+
 const CommonHero = (props) => {
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -10,6 +12,7 @@ const CommonHero = (props) => {
           <button className="btn btn-primary">{props.cta}</button>
         </div>
       </div>
+      <AddParticles />
     </div>
   );
 };

@@ -4,7 +4,7 @@ const Header = () => {
   const link = location.pathname;
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100  shadow">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
