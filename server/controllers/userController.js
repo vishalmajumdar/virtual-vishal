@@ -46,7 +46,9 @@ const signin = async (req, res) => {
   // if password is correct generate jwt
   const token = jwt.sign({ id: user._id }, JWT_SECRET);
 
-  return res.json({ token, userID: user._id, msg: "User Logged In" });
+  return res
+    .json({ token, userID: user._id, msg: "User Logged In" })
+    .status(200);
 };
 
 module.exports = { signup, signin };

@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../App";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
   const link = location.pathname;
   const { theme, toggleTheme, isLoggedIn, setIsLoggedIn } =
@@ -11,9 +12,14 @@ const Header = () => {
 
   // Sign out
   const handleSignOut = () => {
+    setIsLoggedIn(false);
+
+    // Redirect before clearing local storage
+    navigate("/signin");
+
+    // Clear local storage
     localStorage.removeItem("userID");
     localStorage.removeItem("token");
-    setIsLoggedIn(false);
   };
   return (
     <>
@@ -120,34 +126,43 @@ const Header = () => {
             className="drawer-overlay"
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-100">
-            {/* Sidebar content here */}
-            <li>
-              <NavLink to="/" onClick={() => setDrawerOpen(false)}>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/about"} onClick={() => setDrawerOpen(false)}>
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/pricing"} onClick={() => setDrawerOpen(false)}>
-                Pricing
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={"/contact"} onClick={() => setDrawerOpen(false)}>
-                Contact
-              </NavLink>
-            </li>
-            <li onClick={() => setDrawerOpen(false)}>
-              {/* Theme Switcher Starts */}
-              <div onClick={toggleTheme}>
-                {theme === "luxury" ? "Light Mode" : "Dark Mode"}
-              </div>
-              {/* Theme Switcher Ends */}
-            </li>
+            {/* Sidebar content start */}
+            {isLoggedIn ? (
+              <li className="mx-1">
+                <NavLink to="/dashboard">Dashboard </NavLink>
+              </li>
+            ) : (
+              <>
+                <li className="mx-1">
+                  <NavLink to="/" onClick={() => setDrawerOpen(false)}>
+                    Home
+                  </NavLink>
+                </li>
+                <li className="mx-1">
+                  <NavLink to={"/about"} onClick={() => setDrawerOpen(false)}>
+                    About
+                  </NavLink>
+                </li>
+                <li className="mx-1">
+                  <NavLink to={"/pricing"} onClick={() => setDrawerOpen(false)}>
+                    Pricing
+                  </NavLink>
+                </li>
+                <li className="mx-1">
+                  <NavLink to={"/contact"} onClick={() => setDrawerOpen(false)}>
+                    Contact
+                  </NavLink>
+                </li>
+                <li className="mx-1" onClick={() => setDrawerOpen(false)}>
+                  {/* Theme Switcher Starts */}
+                  <div onClick={toggleTheme}>
+                    {theme === "luxury" ? "Light Mode" : "Dark Mode"}
+                  </div>
+                  {/* Theme Switcher Ends */}
+                </li>
+              </>
+            )}
+            {/* Sidebar content end */}
           </ul>
         </div>
       </div>

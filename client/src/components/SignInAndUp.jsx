@@ -1,9 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AddParticles from "./AddParticles";
-import { useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { AppContext } from "../App";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -30,21 +31,35 @@ const SignIn = () => {
       );
 
       const result = await response.json();
-      console.log(result);
+      console.log(result.status, result);
+
       setError(result.msg);
 
-      setIsLoggedIn(true);
-      setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
-
-      localStorage.setItem("token", result.token);
-      localStorage.setItem("userID", result.userID);
+      if (response.status === 200) {
+        setIsLoggedIn(true);
+        setError("");
+        setIsLoading(true);
+        setTimeout(() => {
+          setIsLoading(false);
+          navigate("/dashboard");
+        }, 3000);
+        localStorage.setItem("token", result.token);
+        localStorage.setItem("userID", result.userID);
+      }
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    // Check if user is authenticated
+    const token = localStorage.getItem("token");
+    const userID = localStorage.getItem("userID");
+
+    if (token && userID) {
+      navigate("/dashboard");
+    }
+  }, []);
 
   return (
     <>
