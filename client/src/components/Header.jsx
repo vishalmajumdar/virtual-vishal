@@ -5,7 +5,7 @@ import { AppContext } from "../App";
 const Header = () => {
   const location = useLocation();
   const link = location.pathname;
-  const { theme, toggleTheme } = useContext(AppContext);
+  const { theme, toggleTheme, isLoggedIn } = useContext(AppContext);
   return (
     <>
       {/* Drawer Starts */}
@@ -71,7 +71,11 @@ const Header = () => {
               </ul>
             </div>
             <div className="navbar-end">
-              {link !== "/signin" ? (
+              {isLoggedIn ? (
+                <Link to={"/dashboard"} className="btn">
+                  Dashboard
+                </Link>
+              ) : link !== "/signin" ? (
                 <Link to={"/signin"} className="btn">
                   Sign In
                 </Link>

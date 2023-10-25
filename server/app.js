@@ -4,17 +4,20 @@ let dbConnected = false;
 
 // require express for server
 const express = require("express");
+const cors = require("cors");
 
 // require mongoose for MongoDB
 const mongoose = require("mongoose");
 
 const blogRoutes = require("./routes/blogs");
+const userRoutes = require("./routes/users");
 
 // create a new express application
 const app = express();
 
 // middleware
 app.use(express.json());
+app.use(cors());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
@@ -22,6 +25,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/blogs", blogRoutes);
+app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.json({ dbConnected });

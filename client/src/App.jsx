@@ -6,6 +6,7 @@ import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,16 +14,23 @@ import Footer from "./components/Footer";
 export const AppContext = createContext();
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [theme, setTheme] = useState("luxury");
   const toggleTheme = () => {
     setTheme(theme === "luxury" ? "light" : "luxury");
   };
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);
+    const userID = localStorage.getItem("userID");
+    if (userID) {
+      setIsLoggedIn(true);
+    }
   });
   return (
     <>
-      <AppContext.Provider value={{ theme, toggleTheme }}>
+      <AppContext.Provider
+        value={{ theme, toggleTheme, isLoggedIn, setIsLoggedIn }}
+      >
         <Router>
           <Header />
           <Routes>
@@ -32,6 +40,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
