@@ -7,6 +7,8 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const { isLoggedIn, setIsLoggedIn } = useContext(AppContext);
 
   const handleSignIn = async (e) => {
@@ -32,6 +34,10 @@ const SignIn = () => {
       setError(result.msg);
 
       setIsLoggedIn(true);
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
 
       localStorage.setItem("token", result.token);
       localStorage.setItem("userID", result.userID);
@@ -61,10 +67,18 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input
-          type="submit"
-          className="input input-bordered w-full max-w-xs cursor-pointer"
-        />
+
+        {isLoading ? (
+          <button className="btn btn-wide">
+            <span className="loading loading-infinity"></span>
+          </button>
+        ) : (
+          <input
+            type="submit"
+            className="input input-bordered w-full max-w-xs cursor-pointer"
+          />
+        )}
+
         <small className="mt-3">
           Not registered? <Link to={"/signup"}> Sign Up</Link>
         </small>
@@ -80,6 +94,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
   const handleSignup = async (e) => {
@@ -99,9 +114,13 @@ const SignUp = () => {
           },
         }
       );
-
       const result = await response.json();
-      if (response.status === 200) setShowToast(true);
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        if (response.status === 200) setShowToast(true);
+      }, 3000);
+
       console.log(response.status);
       setTimeout(() => {
         setShowToast(false);
@@ -157,6 +176,10 @@ const SignUp = () => {
               className="input input-bordered w-full max-w-xs cursor-pointer"
             />
           </>
+        ) : isLoading ? (
+          <button className="btn btn-wide">
+            <span className="loading loading-infinity"></span>
+          </button>
         ) : (
           <input
             type="submit"
