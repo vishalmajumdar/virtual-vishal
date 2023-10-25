@@ -18,12 +18,17 @@ const App = () => {
   const [theme, setTheme] = useState("luxury");
   const toggleTheme = () => {
     setTheme(theme === "luxury" ? "light" : "luxury");
+    localStorage.setItem("theme", theme === "luxury" ? "light" : "luxury");
   };
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);
     const userID = localStorage.getItem("userID");
+    const hasTheme = localStorage.getItem("theme");
     if (userID) {
       setIsLoggedIn(true);
+    }
+    if (hasTheme) {
+      setTheme(hasTheme);
     }
   });
   return (

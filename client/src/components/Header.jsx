@@ -1,16 +1,30 @@
-import { useContext } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useContext, useState } from "react";
 import { AppContext } from "../App";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const location = useLocation();
   const link = location.pathname;
-  const { theme, toggleTheme, isLoggedIn } = useContext(AppContext);
+  const { theme, toggleTheme, isLoggedIn, setIsLoggedIn } =
+    useContext(AppContext);
+
+  // Sign out
+  const handleSignOut = () => {
+    localStorage.removeItem("userID");
+    setIsLoggedIn(false);
+  };
   return (
     <>
       {/* Drawer Starts */}
       <div className="drawer">
-        <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
+        <input
+          id="my-drawer-3"
+          type="checkbox"
+          className="drawer-toggle"
+          checked={drawerOpen}
+          onChange={() => setDrawerOpen(!drawerOpen)}
+        />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
           <div className="w-full navbar bg-base-100 shadow">
@@ -39,7 +53,7 @@ const Header = () => {
               </div>
 
               <Link
-                to={"/"}
+                to={isLoggedIn ? "/dashboard" : "/"}
                 className="btn btn-ghost normal-case text-xl font-serif"
               >
                 Virtual Vishal
@@ -49,32 +63,41 @@ const Header = () => {
             <div className="navbar-center flex-none hidden lg:block">
               <ul className="menu menu-horizontal px-1">
                 {/* Navbar menu content here */}
-                <li className="mx-1">
-                  <NavLink to="/">Home </NavLink>
-                </li>
-                <li className="mx-1">
-                  <NavLink to={"/about"}>About </NavLink>
-                </li>
-                <li className="mx-1">
-                  <NavLink to={"/pricing"}>Pricing </NavLink>
-                </li>
-                <li className="mx-1">
-                  <NavLink to={"/contact"}>Contact </NavLink>
-                </li>
-                <li className="mx-1">
-                  {/* Theme Switcher Starts */}
-                  <div onClick={toggleTheme}>
-                    {theme === "luxury" ? "Light Mode" : "Dark Mode"}
-                  </div>
-                  {/* Theme Switcher Ends */}
-                </li>
+                {isLoggedIn ? (
+                  <li className="mx-1">
+                    <NavLink to="/dashboard">Dashboard </NavLink>
+                  </li>
+                ) : (
+                  <>
+                    {" "}
+                    <li className="mx-1">
+                      <NavLink to="/">Home</NavLink>
+                    </li>
+                    <li className="mx-1">
+                      <NavLink to={"/about"}>About </NavLink>
+                    </li>
+                    <li className="mx-1">
+                      <NavLink to={"/pricing"}>Pricing </NavLink>
+                    </li>
+                    <li className="mx-1">
+                      <NavLink to={"/contact"}>Contact </NavLink>
+                    </li>
+                    <li className="mx-1">
+                      {/* Theme Switcher Starts */}
+                      <div onClick={toggleTheme}>
+                        {theme === "luxury" ? "Light Mode" : "Dark Mode"}
+                      </div>
+                      {/* Theme Switcher Ends */}
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
             <div className="navbar-end">
               {isLoggedIn ? (
-                <Link to={"/dashboard"} className="btn">
-                  Dashboard
-                </Link>
+                <button className="btn" onClick={handleSignOut}>
+                  Sign Out
+                </button>
               ) : link !== "/signin" ? (
                 <Link to={"/signin"} className="btn">
                   Sign In
@@ -88,6 +111,7 @@ const Header = () => {
           </div>
           {/* Page content here */}
         </div>
+        {/* Mobile Drawer */}
         <div className="drawer-side z-10">
           <label
             htmlFor="my-drawer-3"
@@ -97,18 +121,26 @@ const Header = () => {
           <ul className="menu p-4 w-80 min-h-full bg-base-100">
             {/* Sidebar content here */}
             <li>
-              <NavLink to="/">Home </NavLink>
+              <NavLink to="/" onClick={() => setDrawerOpen(false)}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/about"}>About </NavLink>
+              <NavLink to={"/about"} onClick={() => setDrawerOpen(false)}>
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/pricing"}>Pricing </NavLink>
+              <NavLink to={"/pricing"} onClick={() => setDrawerOpen(false)}>
+                Pricing
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/contact"}>Contact </NavLink>
+              <NavLink to={"/contact"} onClick={() => setDrawerOpen(false)}>
+                Contact
+              </NavLink>
             </li>
-            <li>
+            <li onClick={() => setDrawerOpen(false)}>
               {/* Theme Switcher Starts */}
               <div onClick={toggleTheme}>
                 {theme === "luxury" ? "Light Mode" : "Dark Mode"}
