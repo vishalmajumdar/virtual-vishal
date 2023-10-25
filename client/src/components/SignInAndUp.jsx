@@ -17,7 +17,7 @@ const SignIn = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/api/users/signup`,
+        `${import.meta.env.VITE_SERVER_API_URL}/api/users/signin`,
         {
           method: "POST",
           body: JSON.stringify({ email, password }),
@@ -90,7 +90,7 @@ const SignUp = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/api/users/signup`,
+        `${import.meta.env.VITE_SERVER_API_URL}/api/users/signup`,
         {
           method: "POST",
           body: JSON.stringify({ name, email, password }),
