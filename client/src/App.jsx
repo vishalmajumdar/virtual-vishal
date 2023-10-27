@@ -7,6 +7,9 @@ import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
+import Summarize from "./pages/Summarize";
+import Blog from "./pages/Blog";
+import Image from "./pages/Image";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -46,6 +49,9 @@ const App = () => {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/summarize" element={<Summarize />} />
+            <Route path="/dashboard/blog" element={<Blog />} />
+            <Route path="/dashboard/image" element={<Image />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

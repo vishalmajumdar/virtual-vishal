@@ -36,12 +36,12 @@ const SignIn = () => {
       setError(result.msg);
 
       if (response.status === 200) {
-        setIsLoggedIn(true);
-        setError("");
         setIsLoading(true);
         setTimeout(() => {
           setIsLoading(false);
           navigate("/dashboard");
+          setIsLoggedIn(true);
+          setError("");
         }, 3000);
         localStorage.setItem("token", result.token);
         localStorage.setItem("userID", result.userID);

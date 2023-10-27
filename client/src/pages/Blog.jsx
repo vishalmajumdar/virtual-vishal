@@ -1,10 +1,11 @@
 import CommonHero from "../components/CommonHero";
+import Divider from "../components/Divider";
+import Blogging from "../components/Blogging";
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Divider from "../components/Divider";
-import DashboardHub from "../components/DashboardHub";
 
-const Dashboard = () => {
+const Blog = (props) => {
   const navigate = useNavigate();
 
   // Use localStorage.getItem to set initial values
@@ -18,19 +19,18 @@ const Dashboard = () => {
       navigate("/signin");
     }
   }, [token, userID, navigate]);
-
   return (
     <>
       <CommonHero
-        heading="Welcome to Your Creative Hub"
-        brief="Your journey begins here, where you can unleash your creativity using our powerful tools. Generate articles, craft engaging blog posts, and bring your ideas to life with image generation. Explore the endless possibilities and take your content to the next level."
+        heading="Elevate Your Blogging"
+        brief="Empower your writing with OpenAI's advanced tools. Craft engaging, insightful, and SEO-friendly blog posts effortlessly. Transform your ideas into compelling content with ease."
         cta="Get Started"
       />
       <Divider />
-      <DashboardHub />
+      <Blogging />
       <Divider />
     </>
   );
 };
 
-export default Dashboard;
+export default Blog;

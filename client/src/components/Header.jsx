@@ -71,12 +71,26 @@ const Header = () => {
               <ul className="menu menu-horizontal px-1">
                 {/* Navbar menu content here */}
                 {isLoggedIn ? (
-                  <li className="mx-1">
-                    <NavLink to="/dashboard">Dashboard </NavLink>
-                  </li>
+                  <>
+                    <li className="mx-1">
+                      <NavLink end to="/dashboard">
+                        Dashboard
+                      </NavLink>
+                    </li>
+                    <li className="mx-1">
+                      <NavLink to="/dashboard/summarize">
+                        Article Summarizer
+                      </NavLink>
+                    </li>
+                    <li className="mx-1">
+                      <NavLink to="/dashboard/blog">Blog Writer </NavLink>
+                    </li>
+                    <li className="mx-1">
+                      <NavLink to="/dashboard/image">Image Generator </NavLink>
+                    </li>
+                  </>
                 ) : (
                   <>
-                    {" "}
                     <li className="mx-1">
                       <NavLink to="/">Home</NavLink>
                     </li>
@@ -128,9 +142,24 @@ const Header = () => {
           <ul className="menu p-4 w-80 min-h-full bg-base-100">
             {/* Sidebar content start */}
             {isLoggedIn ? (
-              <li className="mx-1">
-                <NavLink to="/dashboard">Dashboard </NavLink>
-              </li>
+              <>
+                <li className="mx-1" onClick={() => setDrawerOpen(false)}>
+                  <NavLink end to="/dashboard">
+                    Dashboard{" "}
+                  </NavLink>
+                </li>
+                <li className="mx-1" onClick={() => setDrawerOpen(false)}>
+                  <NavLink to="/dashboard/summarize">
+                    Article Summarizer
+                  </NavLink>
+                </li>
+                <li className="mx-1" onClick={() => setDrawerOpen(false)}>
+                  <NavLink to="/dashboard/blog">Blog Writer </NavLink>
+                </li>
+                <li className="mx-1" onClick={() => setDrawerOpen(false)}>
+                  <NavLink to="/dashboard/image">Image Generator </NavLink>
+                </li>
+              </>
             ) : (
               <>
                 <li className="mx-1">
