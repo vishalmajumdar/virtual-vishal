@@ -13,6 +13,9 @@ import Image from "./pages/Image";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Disclaimer from "./pages/disclaimer";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 export const AppContext = createContext();
 
@@ -52,6 +55,12 @@ const App = () => {
             <Route path="/dashboard/summarize" element={<Summarize />} />
             <Route path="/dashboard/blog" element={<Blog />} />
             <Route path="/dashboard/image" element={<Image />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route
+              path="/terms-and-conditions"
+              element={<TermsAndConditions />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

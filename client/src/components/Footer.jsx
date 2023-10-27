@@ -4,21 +4,39 @@ const Footer = () => {
       <footer className="footer p-10 bg-base-200 text-base-content justify-between">
         <nav>
           <header className="footer-title">Services</header>
-          <a className="link link-hover">Article Summarizer</a>
-          <a className="link link-hover">Blog Writer</a>
-          <a className="link link-hover">Image Generator</a>
+          <a className="link link-hover" href="/dashboard/summarize">
+            Article Summarizer
+          </a>
+          <a className="link link-hover" href="/dashboard/blog">
+            Blog Writer
+          </a>
+          <a className="link link-hover" href="/dashboard/image">
+            Image Generator
+          </a>
         </nav>
         <nav>
           <header className="footer-title">Company</header>
-          <a className="link link-hover">About Us</a>
-          <a className="link link-hover">Contact Us</a>
-          <a className="link link-hover">Jobs</a>
+          <a className="link link-hover" href="/about">
+            About Us
+          </a>
+          <a className="link link-hover" href="/contact">
+            Contact Us
+          </a>
+          <a className="link link-hover" href="/pricing">
+            Pricing
+          </a>
         </nav>
         <nav>
           <header className="footer-title">Legal</header>
-          <a className="link link-hover">Disclaimer</a>
-          <a className="link link-hover">Privacy Policy</a>
-          <a className="link link-hover">Terms and Conditions</a>
+          <a className="link link-hover" href="/disclaimer">
+            Disclaimer
+          </a>
+          <a className="link link-hover" href="/privacy-policy">
+            Privacy Policy
+          </a>
+          <a className="link link-hover" href="/terms-and-conditions">
+            Terms and Conditions
+          </a>
         </nav>
         <div className="flex h-full items-center ">
           <div className="join">
